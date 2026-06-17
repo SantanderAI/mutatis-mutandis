@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the accompanying paper. The Law School dataset must be cited separately (see data/README.md)."
+title: "Mutatis Mutandis: Revisiting the Comparator in Discrimination Testing"
+abstract: "Code and experiments for the paper revisiting the choice of comparator in discrimination testing, using the Law School dataset."
+type: software
+url: "https://github.com/SantanderAI/mutatis-mutandis"
+repository-code: "https://github.com/SantanderAI/mutatis-mutandis"
+license: Apache-2.0
+# TODO: complete the full author list (given/family names) exactly as in the published paper.
+authors:
+  - family-names: "Álvarez"
+    given-names: "José M."
+preferred-citation:
+  type: article
+  title: "Mutatis Mutandis: Revisiting the Comparator in Discrimination Testing"
+  journal: "Computational Intelligence"
+  year: 2024
+  notes: "Forthcoming. Update volume/issue/pages/DOI once published."
+  authors:
+    - family-names: "Álvarez"
+      given-names: "José M."
+references:
+  - type: data
+    title: "LSAC National Longitudinal Bar Passage Study"
+    authors:
+      - family-names: "Wightman"
+        given-names: "Linda F."
+    year: 1998
+    publisher:
+      name: "Law School Admission Council"
+    notes: "Original Law School dataset. Distributed by SEAPHE: http://www.seaphe.org/databases.php"
+  - type: article
+    title: "Counterfactual Fairness"
+    authors:
+      - family-names: "Kusner"
+        given-names: "Matt J."
+      - family-names: "Loftus"
+        given-names: "Joshua R."
+      - family-names: "Russell"
+        given-names: "Chris"
+      - family-names: "Silva"
+        given-names: "Ricardo"
+    year: 2017
+    collection-title: "Advances in Neural Information Processing Systems (NeurIPS) 30"
+    notes: "Source of the pre-processed (ZFYA) Law School variant used here."
