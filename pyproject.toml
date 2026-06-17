@@ -1,0 +1,98 @@
+# Copyright (c) 2026 José M. Álvarez
+# SPDX-License-Identifier: Apache-2.0
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mutatis-mutandis"
+version = "0.1.0"
+description = "Situation testing for discrimination analysis with counterfactual comparators (research code for the paper 'Mutatis Mutandis: Revisiting the Comparator in Discrimination Testing')"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Santander AI Lab", email = "opensource@gruposantander.com"},
+]
+keywords = [
+    "fairness",
+    "algorithmic-fairness",
+    "discrimination-testing",
+    "situation-testing",
+    "counterfactual-fairness",
+    "responsible-ai",
+    "trustworthy-ai",
+    "machine-learning",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+    "coverage>=7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/SantanderAI/mutatis-mutandis"
+Repository = "https://github.com/SantanderAI/mutatis-mutandis"
+Issues = "https://github.com/SantanderAI/mutatis-mutandis/issues"
+Changelog = "https://github.com/SantanderAI/mutatis-mutandis/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["situation_testing*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+# Research code with domain-specific variable names (LSAT, UGPA, Y, do, ...):
+# enforce real errors, pyflakes and import sorting, but do not impose
+# pep8-naming (N) / flake8-simplify (SIM) / bugbear (B) on the paper code.
+select = ["E", "F", "W", "I"]
+# Line length is managed by black; ruff should not flag long comments/strings.
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+# The estimator uses `= None` sentinels with concrete annotations by design.
+implicit_optional = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=situation_testing --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["situation_testing"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
