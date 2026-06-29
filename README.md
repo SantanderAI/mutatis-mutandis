@@ -1,9 +1,6 @@
-# Mutatis Mutandis
+# *Mutatis Mutandis*
 
-> **Open source by Santander AI Lab.** A Python **library** for **algorithmic fairness** and
-> **responsible AI**: it implements **situation testing** — a **machine learning** method for
-> detecting discrimination — together with a **counterfactual** comparator (`cfST`) for auditing
-> decision rules against protected groups.
+> Repository for [*Mutatis Mutandis: Revisiting the Comparator in Discrimination Testing*](https://arxiv.org/abs/2405.13693), forthcoming in [*Computational Intelligence*](https://onlinelibrary.wiley.com/journal/14678640), by [Jose M. Alvarez](https://cc-jalvarez.github.io/) (Santander AI Lab) and [Salvatore Ruggieri](https://pages.di.unipi.it/ruggieri/) (University of Pisa). Also visit [the main repository](https://github.com/cc-jalvarez/revisiting-the-comparator) maintained by the authors.
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -13,14 +10,43 @@
 [![Ruff](https://img.shields.io/badge/linter-ruff-261230.svg)](https://github.com/astral-sh/ruff)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://www.conventionalcommits.org/)
 
-Part of [**Santander AI Open Source**](https://github.com/SantanderAI) — open source AI projects from Banco Santander ([santander.com](https://santander.com)).
+Part of [**Santander AI Open Source**](https://github.com/SantanderAI): open source AI projects from Banco Santander ([santander.com](https://santander.com)).
 
-Research code accompanying the paper *Mutatis Mutandis: Revisiting the Comparator
-in Discrimination Testing* (forthcoming in *Computational Intelligence*). It
-implements **situation testing** — comparing each individual's outcome against a
-neighbourhood of similar protected (control) and non-protected (test)
-individuals — and a **counterfactual** variant (`cfST`) that draws the test
-centre from a counterfactual twin of the individual.
+The paper re-examines the role of comparators in individual discrimination testing, arguing that comparator construction is a causal modeling problem. It introduces two comparator types: *Ceteris Paribus* (CP), which changes only the protected attribute, and *Mutatis Mutandis* (MM), which also adjusts non-protected attributes affected by the protected attribute. Through a real-world case study and the counterfactual situation testing method, the authors show how these comparator choices can lead to different discrimination assessments and highlight opportunities for machine learning in implementing MM comparators.
+
+## References
+
+If you make use of the code, please cite the following papers:
+
+*Counterfactual Situation Testing: From Single to Multidimensional Discrimination*. Jose M. Alvarez, and Salvatore Ruggieri. Journal of Artificial Intelligence Research (JAIR), 82, 2279-2323, 2025.
+
+<pre><code>
+@article{DBLP:journals/jair/AlvarezR25,
+  author       = {Jos{\'{e}} M. {\'{A}}lvarez and
+                  Salvatore Ruggieri},
+  title        = {Counterfactual Situation Testing: From Single to Multidimensional
+                  Discrimination},
+  journal      = {J. Artif. Intell. Res.},
+  volume       = {82},
+  pages        = {2279--2323},
+  year         = {2025}
+}
+</code></pre>
+
+*Mutatis Mutandis: Revisiting the Comparator in Discrimination Testing*. Jose M. Alvarez, and Salvatore Ruggieri. Forthcoming in Computational Intelligence, 2026.
+
+<pre><code>
+@article{DBLP:journals/corr/abs-2405-13693,
+  author       = {Jos{\'{e}} M. {\'{A}}lvarez and
+                  Salvatore Ruggieri},
+  title        = {Mutatis Mutandis: Revisiting the Comparator in Discrimination Testing},
+  journal      = {CoRR},
+  volume       = {abs/2405.13693},
+  year         = {2024}
+}
+</code></pre>
+
+The Law School dataset must be cited separately; see [data/README.md](data/README.md) for the data statement and citation.
 
 ## Overview
 
@@ -162,9 +188,3 @@ research repository is
 [cc-jalvarez/revisiting-the-comparator](https://github.com/cc-jalvarez/revisiting-the-comparator).
 This open-source release is distributed and maintained by **Santander AI Lab**
 with the author's consent. See [NOTICE](NOTICE) for details.
-
-## Citation
-
-If you use this repository, please cite the accompanying paper (see
-[CITATION.cff](CITATION.cff)). The Law School dataset must be cited separately;
-see [data/README.md](data/README.md) for the data statement and citation.
